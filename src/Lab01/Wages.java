@@ -3,156 +3,193 @@ package Lab01;
 import java.io.*;
 import java.util.*;
 
-abstract class Employee {
+abstract class Employee
+{
     String name;
 
-    Employee() {
+    Employee()
+    {
     }
 
-    Employee(String nm) {
+    Employee(String nm)
+    {
         name = nm;
     }
 
     abstract double computePay();
 
-    void display() {
+    void display()
+    {
     }
 
-    void setHours(double hrs) {
+    void setHours(double hrs)
+    {
     }
 
-    void setSales(double sales) {
+    void setSales(double sales)
+    {
     }
 
-    void setSalary(double salary) {
+    void setSalary(double salary)
+    {
         System.out.println("NO!");
     }
 }
 
-class WageEmployee extends Employee {
+class WageEmployee extends Employee
+{
     double rate;
     double hours;
 
-    WageEmployee(String nm) {
+    WageEmployee(String nm)
+    {
         super(nm);
     }
 
-    WageEmployee(String nm, double r) {
+    WageEmployee(String nm, double r)
+    {
         super(nm);
         rate = r;
     }
 
-    void setRate(double r) {
+    void setRate(double r)
+    {
         rate = r;
     }
 
-    void setHours(double hrs) {
+    void setHours(double hrs)
+    {
         hours = hrs;
     }
 
-    double computePay() {
+    double computePay()
+    {
         return rate * hours;
     }
 }
 
-class Programmer extends WageEmployee {
-    Programmer(String nm, double w) {
+class Programmer extends WageEmployee
+{
+    Programmer(String nm, double w)
+    {
         super(nm, w);
     }
 
-    void display() {
+    void display()
+    {
         System.out.println("Name: " + name + "\tHours: " + hours + "\tRate: " + rate);
     }
 }
 
-class SalesPerson extends WageEmployee {
+class SalesPerson extends WageEmployee
+{
     double commission;
     double SalesMade;
 
-    SalesPerson(String nm, double c) {
+    SalesPerson(String nm, double c)
+    {
         super(nm);
         commission = c;
     }
 
-    void setCommission(double comm) {
+    void setCommission(double comm)
+    {
         commission = comm;
     }
 
-    void setSales(double sales) {
+    void setSales(double sales)
+    {
         SalesMade = sales;
     }
 
-    double computePay() {
+    double computePay()
+    {
         return commission * SalesMade;
     }
 
-    void display() {
+    void display()
+    {
         System.out.println("Name: " + name + "\tCommission: " + commission + "\tSales: " + SalesMade);
     }
 }
 
-class Manager extends Employee {
+class Manager extends Employee
+{
     double monthlysalary;
 
-    Manager() {
+    Manager()
+    {
         super("");
     }
 
-    Manager(String nm, double w) {
+    Manager(String nm, double w)
+    {
         super(nm);
         monthlysalary = w;
     }
 
-    void setSalary(double salary) {
+    void setSalary(double salary)
+    {
         monthlysalary = salary;
     }
 
-    double computePay() {
+    double computePay()
+    {
         return monthlysalary;
     }
 
-    void display() {
+    void display()
+    {
         System.out.println("Name: " + name + "\tMonthly Salary: " + monthlysalary);
     }
 }
 
-interface ManagerInterface {
+interface ManagerInterface
+{
     double managerComputePay();
 
     void managerDisplay();
 }
 
-class SalesManager extends SalesPerson implements ManagerInterface {
+class SalesManager extends SalesPerson implements ManagerInterface
+{
     double monthlysalary;
 
-    SalesManager(String nm, double w) {
+    SalesManager(String nm, double w)
+    {
         super(nm, w);
     }
 
-    public double managerComputePay() {
+    public double managerComputePay()
+    {
         return monthlysalary;
     }
 
-    double computePay() {
+    double computePay()
+    {
         System.out.println("SalesManager: " + name + " " + super.computePay() + managerComputePay());
         return super.computePay() + managerComputePay();
     }
 
-    void setSalary(double s) {
+    void setSalary(double s)
+    {
         monthlysalary = s;
     }
 
-    public void managerDisplay() {
+    public void managerDisplay()
+    {
         System.out.println("Name: " + name + "\tMonthly Salary: " + monthlysalary);
     }
 
-    void display() {
+    void display()
+    {
         super.display();
         managerDisplay();
     }
 }
 
-public class Wages {
+public class Wages
+{
     public static void main(String argv[])
     {
 //        EmployeeList emp = new EmployeeList();
