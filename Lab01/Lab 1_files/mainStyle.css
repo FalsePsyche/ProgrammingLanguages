@@ -1,0 +1,589 @@
+/* colors: 
+
+  blue      002147
+  mid-blue  4B92DB
+  red       822433 
+  olive     887B1B
+  gold      8D744A
+  mid-olive C2B000
+  mid-red   DB4B69
+  green     005751 */
+
+/* default */
+
+/*
+{
+  margin: 0; 
+  padding: 0;
+  border: 0;
+  font-family: sans-serif;
+  line-height: 100%;
+  color: #002147;
+}
+*/
+
+
+table.maintable { 
+  margin: 0;
+  border-left-width: 0;
+  border-top-width: 0;
+  margin: 0; 
+  padding: 0;
+  width: 100%;
+  font-family: sans-serif;
+  line-height: 130%;
+  color: #002147;
+}
+
+td { 
+  padding:0;
+} 
+
+/* Header */
+
+td.ucheader { 
+  background-color:#FFFFFF;
+  padding-top: 0px;
+  padding-right: 0px;
+  text-align: center;
+  vertical-align: top; 
+  padding-bottom: 0px;
+}
+
+td.projectLinks {
+  color: #000000;
+}
+
+td.ucheader a.ucheaderA { 
+  text-decoration: none;
+  letter-spacing: 0em;
+  font-family: sans-serif;
+  font-size: 140%;
+  font-weight: bold;
+  color:#AA0000;
+}
+
+td.ucheader a.ucheaderB { 
+  text-decoration: none;
+  letter-spacing: 0em;
+  font-family: sans-serif;
+  font-size: 120%;
+  font-weight: bold;
+  color:#887B1B;
+}
+
+/* Navigation table */
+
+table.navtable img { 
+  margin-top: 0px;
+}
+
+table.navtable a { 
+  font-size: 70%;
+}
+
+td.ucLink {
+  padding-bottom: 16px;
+}
+
+table.navtable a, a:link, a:visited {
+  font-weight: normal;
+}
+
+table.navtable a:hover {
+  font-weight: normal;
+  color: #AA0000;
+}
+
+table.navtable td { 
+   background-color: #FFFFFF;
+   text-align: left;
+   padding-top: 0px;
+   vertical-align: top;
+   font-size: 110%;
+   color: #887B1B;
+}
+
+table.navtable p { 
+  background-color: #FFFFFF;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 110%;
+  color: #002147;
+}
+
+table.navtable a.projectLinks, a.projectLinks:visited, a.projectLinks:link { 
+  background-color: #FFFFFF;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  font-size: 70%;
+  color: #002147;
+}
+
+table.navtable a.projectLinks:hover { 
+  background-color: #FFFFFF;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  font-size: 70%;
+  color: #AA0000;
+}
+
+table.navtable a, a:link, a:hover, a:visited { 
+   font-family: sans-serif;
+   text-decoration: none;
+   color: #002147;
+}
+
+/* Body */
+
+td.bodycell p.smallsize {
+  font-size: 0.8em;
+}
+
+td.bodycell { 
+  padding-left: 0px;
+  padding-right: 24px;
+  padding-bottom: 0px;
+  vertical-align: top;
+}
+
+td.bodycell p { 
+  font-family: sans-serif;
+  line-height: 130%;
+  color: #002147;
+  padding-bottom: 0.5em;
+  padding-top: 0;
+  margin: 0;
+ }
+
+td.bodycell ul {
+  list-style-type: square;
+  margin-left: 20px;
+  padding-left: 0;
+  line-height: 100%;
+  margin-top: 0;
+}
+
+td.bodycell h1 { 
+   font-size: 140%;
+   font-weight: bold;
+   font-family: sans-serif;
+   color: #AA0000;
+}
+
+td.bodycell h2 { 
+   font-size: 120%;
+   font-weight: normal;
+   font-family: sans-serif;
+   color: #887B1B;
+}
+
+td.bodycell h3 { 
+  font-size: 120%; 
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #AA0000;
+  padding-bottom: 0.25em;
+  padding-top: 0.75em;
+  margin: 0px;  
+}
+
+td.bodycell h4 { 
+  font-size: 100%; 
+  font-weight: normal;
+  font-family: sans-serif;
+  color: #887B1B;
+  padding-bottom: 0.25em;
+  padding-top: 0.5em;
+  margin: 0px;  
+}
+
+td.bodycell ul { 
+  font-family: sans-serif;
+  color: #002147;
+}
+
+body { 
+   padding: 0;
+   margin: 0;
+}
+
+td.bodycell p.olive {
+  text-align: left;
+  font-family: sans-serif;
+  font-weight: normal;
+  word-spacing: normal;
+  font-size: 100%; 
+  color: #887B1B;
+}
+  
+td.bodycell p.filterline { 
+  text-align: left;
+  font-family: sans-serif;
+  font-weight: normal;
+  word-spacing: normal;
+  font-size: 100%; 
+  padding-bottom: 2em;
+  padding-top: 0em;
+  color: #887B1B;
+}
+
+p.filterline a:link, a:visited, a:hover { 
+  font-weight: normal;
+  word-spacing: normal;
+  text-decoration: none;
+  color: #002147;
+}
+
+td.bodycell p.listedlinks { 
+  text-align: left;
+  font-family: sans-serif;
+  font-weight: normal;
+  word-spacing: normal;
+  font-size: 100%; 
+  padding-top: 0em;
+  color: 230023;
+}
+
+td.courseLinks { 
+  text-align: left;
+  font-family: sans-serif;
+  font-weight: normal;
+  word-spacing: normal;
+  font-size: 80%; 
+  padding-left: 0em;
+  padding-top: 0em;
+  padding-right: 30px;
+  color: #230023;
+}
+
+td.courseLinks a:hover { 
+  font-family: sans-serif;
+  color: #880000;
+}
+
+td.courseTitle {
+   font-family: sans-serif;
+   font-weight: bold;
+}
+
+td.courseTitle a, a:link, a:visited {
+   font-family: sans-serif;
+   font-weight: bold;
+}
+
+td.courseTitle a:hover {
+   font-family: sans-serif;
+   font-weight: bold;
+   color: #880000;
+}
+
+td.bodycell a, a:link, a:visited {
+   font-weight: normal;
+}
+
+td.bodycell a:hover {
+   font-weight: normal;
+   color: #880000;
+}
+
+p.listedLinks a:link, a:visited, a:hover { 
+  font-weight: normal;
+  word-spacing: normal;
+  text-decoration: none;
+  color: #002147;
+}
+
+/* news items */
+
+td.bodycell a.newsCategory { 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  color: #002147;
+  font-style: italic;
+  font-size: 90%;
+}
+
+td.bodycell a.newsHeadline { 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  font-weight: bold;
+  font-size: 90%;
+}
+
+td.bodycell a.newsShortAbstract { 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 1em;
+  text-align: left;
+  color: #002147;
+  font-size: 90%;
+}
+
+/* publications */
+
+td.bodycell p.publicationTitle { 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  color: #002147;
+  font-weight: bold;
+  font-size: 90%;
+}
+
+td.bodycell p.publicationAuthors { 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  color: #002147;
+  text-align: left;
+  font-style: italic;
+  font-size: 90%;
+}
+
+td.bodycell p.publicationDetails, p.publicationOrder { 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  color: #002147;
+  font-size: 90%;
+}
+
+td.publicationOrderCell {
+   vertical-align: top;
+   width: 3em;
+}
+
+td.techReportOrderCell {
+   vertical-align: top;
+   width: 5em;
+}
+
+td.bodycell p.publicationNote { 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  color: #002147;
+  font-size: 90%;
+}
+
+td.bodycell p.publicationlinks { 
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.8em;
+  text-align: left;
+  font-size: 90%; 
+  padding-top: 0em;
+  color: #887B1B;
+}
+
+td.publicationInfo {
+  margin: 0;
+  vertical-align: top;
+  width: 10em;
+  text-align: left;
+  padding-top: 0;
+  color: #887B1B;
+  font-weight: bold;
+}
+
+td.publicationDetails {
+  margin: 0;
+  vertical-align: top;
+  padding-top: 0;
+  text-align: left;
+  color: #887B1B;
+  font-weight: normal;
+}
+
+/* seminar lists */
+
+td.bodycell p.seminarDate { 
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.2em;
+  text-align: left;
+  color: #002147;
+  font-style: italic;
+}
+
+td.bodycell p.seminarTitle { 
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0.4em;
+  text-align: left;
+  color: #887B1B;
+}
+
+td.bodycell p.seminarSpeaker { 
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 1.5em;
+  text-align: left;
+  color: #002147;
+}
+
+td.bodycell font.gold {
+   color: #887B1B;
+   font-family: sans-serif;
+   line-height: 120%;
+   padding-bottom: 0px;
+}
+
+/* ExternalRoles */
+
+td.bodycell p.externalRoleNatureOf { 
+  font-style: italic;
+  padding-bottom: 0.4em;
+}
+
+td.bodycell p.externalRolePertainingTo { 
+   font-weight: bold;
+   padding-bottom: 0.2em;
+}
+
+td.bodycell p.externalRoleFurtherInformation { 
+   font-style: italic;
+}
+
+img.sideImage2 {
+   padding-bottom: 24px;
+   height: 185px;
+   width: 120px;
+   text-align: right;
+}
+
+img.sideImage1 {
+   padding-bottom: 24px;
+   height: 92px;
+   width: 120px;
+   text-align: right;
+}
+
+img.sideImage3 {
+   padding-bottom: 24px;
+   height: 162px;
+   width: 120px;
+   text-align: right;
+}
+
+img.sideImage4 {
+   padding-bottom: 24px;
+   height: 173px;
+   width: 120px;
+   text-align: right;
+}
+
+img.sideImage5 {
+   padding-bottom: 24px;
+   height: 91px;
+   width: 120px;
+   text-align: right;
+}
+
+td.bodycell p.personIndex {
+   margin: 0;
+   padding-bottom: 0.5em;
+}
+
+td.bodycell p.seminarIndex {
+   margin: 0;
+   padding-bottom: 0.5em;
+}
+
+td.bodycell p.seminarserieslist {
+   margin: 0;
+   padding-bottom: 0.5em;
+}
+
+td.personImg {
+   width: 210px;
+   padding-left: 0px;
+   padding-right: 0px;
+   padding-top: 0px;
+   padding-bottom: 5px;
+   margin: 0px;
+   text-align: left;
+   vertical-align: top;
+}
+
+td.bodycell table.publicationTable {
+   border: 0px;
+   padding: 0;
+   margin: 0;
+   text-align: left;
+   vertical-align: top;
+}
+
+td.personInfo {
+  padding-bottom: 0.2em;
+  vertical-align: top;
+  width: 170px;
+}
+
+div.personalContent { 
+   font-family: sans-serif;
+   color: #002147;  
+}
+
+div.personalContent *{ 
+   font-family: sans-serif;
+   color: #002147;  
+}
+
+td.personalContent a:link, a:hover {
+   font-weight: normal;
+   word-spacing: normal;
+   text-decoration: none;
+   color: #880000;
+}
+
+div.personalContent code {
+  font-family: Courier;
+  color: black;
+}
+
+div.personalContent a.href { 
+   text-decoration: underline;
+}
+
+div.personalContent a:link { 
+   text-decoration: underline;
+}
+
+div.personalContent a:hover { 
+   text-decoration: underline;
+}
+
+div.personalContent a:visited { 
+   text-decoration: underline;
+}
+
+div.googlesearchresults iframe {
+   width: 100%;
+}
+
+#res .j {
+   width: 100% !important;
+}

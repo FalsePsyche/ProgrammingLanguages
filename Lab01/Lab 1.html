@@ -1,0 +1,226 @@
+
+<!-- saved from url=(0054)http://gauss.ececs.uc.edu/Courses/c4003/labs/lab1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Lab 1</title>
+<meta name="ROBOTS" content="index,follow">
+<meta name="keywords" content=" $keywords-body$">
+<meta name="DESCRIPTION" content="assignment 1">
+<meta name="Edited" content="Fri, 15 May 2009 14:18:31 GMT">
+<meta name="Published" content="Fri, 15 May 2009 14:21:26 GMT">
+
+<link rel="stylesheet" href="./Lab 1_files/mainStyle.css" type="text/css" media="screen">
+<link rel="shortcut icon" href="http://gauss.ececs.uc.edu/Courses/c4003/favicon.ico" type="image/x-icon">
+
+</head>
+<body bgcolor="#FFFFDF" style="">
+<center>
+<table cellspacing="10">
+
+<tbody><tr>
+<th width="200"><b><font color="#0000bb">20-CS-4003-001</font></b></th>
+<th width="500"><b><font color="#bb0000" size="+1">Organization of Programming Languages</font></b></th>
+<th width="200"><b><font color="#0000bb">Fall 2017</font></b></th>
+</tr>
+
+
+<tr>
+<th></th>
+<th><font color="#0000bb" size="+1"><b>Lab Assignment 1</b></font></th>
+<th></th>
+</tr>
+
+</tbody></table>
+
+<hr width="50%" color="#bb00bb">
+<font color="#FF0000" size="-2">
+<nobr>Lambda calculus, Type theory, Formal semantics, Program analysis</nobr><br>
+</font>
+<hr width="50%" color="#bb00bb">
+<p> <!--&nbsp;<br>-->
+
+
+
+<font size="+2" color="#0000FF"><b>Virtual functions, abstract classes</b></font>
+</p><p>
+due: 1 September, 2017 (submit instructions: <a href="http://gauss.ececs.uc.edu/Courses/c4003/labs/submit.html">here</a>)
+<br>
+</p><p>
+<table width="90%"><tbody><tr>
+<td colspan="2"><font size="+1" color="#0000bb"><b>Rationale:</b></font></td>
+</tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td><td>
+This is a simple warm-up exercise.
+</td></tr>
+
+<tr><td colspan="2">&nbsp;</td></tr>
+
+<tr><td colspan="2"><font size="+1" color="#0000bb"><b>Important:</b></font></td>
+</tr>
+
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td> You should not solve this by thinking this is a stand-alone, one-shot
+problem.  Think of this as a way to develop a class hierarchy that can be placed
+in a library and never be modified afterward to accommodate new user classes
+that might be developed.  So, in <a href="http://gauss.ececs.uc.edu/Courses/c4003/labs/Wages.java">Wages.java</a> we give 
+you a class <tt>Employee</tt>, and subclasses <tt>WageEmployee, Manager, 
+Programmer, Salesperson, and SalesManager</tt> and ask you to write
+an <tt>EmployeeList</tt> container class that implements methods for the 
+maintenance of a database of <tt>Employee</tt> objects.  The properties that 
+the <tt>EmployeeList</tt> should have are described below.  Your code should 
+be designed in such a way that is does not break by adding, for example, a 
+President class, or a part-time Worker Class, or a Student co-op class, or 
+any other class of object that might be derived from one of the subclasses 
+of the <tt>Employee</tt> class and added to the <tt>EmployeeList</tt> database.  
+This is an exercise in polymorphism.  Virtual functions are one means 
+that C++ and Java have to support polymorphism.
+</td></tr>
+
+<tr><td colspan="2">&nbsp;</td></tr>
+
+<tr><td colspan="2"><font size="+1" color="#0000bb"><b>Lab Problem:</b></font></td></tr>
+
+<tr> 
+<td></td>
+<td>
+Create a class called <tt>EmployeeList</tt> that is a container of objects of 
+the following kind:
+<pre>abstract class Employee {
+   String name;
+	   
+   Employee() {}
+   Employee (String nm) { name = nm; }
+   abstract double computePay();
+   void display () {}
+   void setHours(double hrs) {}
+   void setSales(double sales) {}
+   void setSalary(double salary) { System.out.println("NO!"); }
+}
+</pre>
+This class and subclasses of this class are contained in
+file <a href="http://gauss.ececs.uc.edu/Courses/c4003/labs/Wages.java">Wages.java</a>, which compiles correctly
+without the <tt>EmployeeList</tt> class.  You will add your
+implementation of the <tt>EmployeeList</tt> class to this file,
+uncomment the code at the bottom of the file, and maybe modify some of
+the existing code to see it run.
+<p> 
+The <tt>EmployeeList</tt> class should provide the following methods:
+<tt>Employee find (String nm)</tt> that returns an object in the 
+container whose name matches <tt>nm</tt>, or <tt>null</tt> if no such
+<tt>Employee</tt> is in the container;
+<tt>void setHours(String nm, double hrs)</tt> that invokes <tt>setHours(hrs)</tt> 
+on the employee in the container whose name matches <tt>nm</tt>; 
+<tt>void setSalary(String nm, double salary)</tt> that invokes 
+<tt>setSalary(salary)</tt> on the employee in the container whose name 
+matches <tt>nm</tt>; 
+<tt>void setSales(String nm, double sales)</tt> that invokes 
+<tt>setSales(sales)</tt> on the employee in the container whose name matches 
+<tt>nm</tt>; 
+<tt>double payroll()</tt> that computes the total payroll of all
+<tt>Employee</tt> objects in the container using the <tt>computePay()</tt> method of each; and 
+<tt>void display()</tt> which invokes <tt>display()</tt> of each employee 
+in the container.
+</p><p>
+The following kinds of objects are derived from the <tt>Employee</tt> class:
+</p><ol>
+<li><tt><b>WageEmployee</b></tt>: has <tt>double rate, hours</tt>
+defined.  There are two constructors: one takes a name as argument and
+the other takes name and rate as arguments. Pay is computed by
+multiplying hours and rate.
+<tt>Low on the totem pole</tt> and its rank cannot be changed.
+</li><li><tt><b>Manager</b></tt>: has <tt>double monthlysalary</tt> defined.
+Has two constructors: one with no arguments, one with name and salary
+as arguments.  Pay is just <tt>monthlysalary</tt>.
+</li></ol>
+The following kinds of objects extend <tt>WageEmployee</tt>:
+<ol>
+<li><tt><b>Programmer</b></tt>: has one constructor with arguments
+name and rate.  Pay is computed from the super class.
+</li><li><tt><b>SalesPerson</b></tt>: has <tt>double commission,
+salesMade</tt> defined. Has one constructor with name and commission as
+arguments.  Pay is computed by multiplying <tt>commission</tt> and 
+<tt>salesMade</tt>.
+</li></ol>
+One other employee type is the following:
+<ol>
+<li><tt><b>SalesManager</b></tt>:
+Has one constructor with arguments name and commission.  Pay is
+computed by adding the result of computing pay as though the employee 
+is of type <tt>SalesPerson</tt> to the result of computing pay as though the 
+employee is of type <tt>Manager</tt>.  
+</li></ol>
+You must figure out what should be inherited and what needs to be
+interfaced.  The diagram below shows the class structure.
+<p>
+</p><center>
+<img src="./Lab 1_files/hierarchy.jpg" height="400">
+</center>
+<p>
+Try your code on this:
+</p><pre>EmployeeList emp = new EmployeeList();
+emp.enqueue(new SalesManager("Gee", 1000));
+emp.enqueue(new SalesManager("Gal", 1000));
+emp.enqueue(new SalesManager("Gem", 1000));
+emp.enqueue(new SalesPerson("John", 0.03));
+emp.enqueue(new SalesPerson("Joan", 0.04));
+emp.enqueue(new SalesPerson("Jack", 0.02));
+emp.enqueue(new Manager("Fred", 10000));
+emp.enqueue(new Manager("Frank", 5000));
+emp.enqueue(new Manager("Florence", 3000));
+emp.enqueue(new Programmer("Linda", 7));
+emp.enqueue(new Programmer("Larry", 5));
+emp.enqueue(new Programmer("Lewis", 3));
+
+emp.setHours("Linda", 35);
+emp.setHours("Larry", 23);
+emp.setHours("Lewis", 3);
+emp.setSales("John", 12000);
+emp.setSales("Joan", 10000);
+emp.setSales("Jack", 5000);
+emp.setSales("Gee", 4000);
+emp.setSales("Gal", 3000);
+emp.setSales("Gem", 2000);
+emp.setSalary("Gee", 1000);
+emp.setSalary("Gal", 2000);
+emp.setSalary("Gem", 3000);
+emp.display();
+System.out.println("Payroll: "+emp.payroll());
+</pre>
+</td></tr>
+
+<tr><td colspan="2">&nbsp;</td></tr>
+
+<tr><td colspan="2"><font size="+1" color="#0000bb"><b>Sample Output:</b></font></td></tr>
+
+<tr> 
+<td></td>
+<td>
+<pre>Name: Gee       Commission: 1000.0      Sales: 4000.0
+Name: Gee       Monthly Salary: 1000.0
+Name: Gal       Commission: 1000.0      Sales: 3000.0
+Name: Gal       Monthly Salary: 2000.0
+Name: Gem       Commission: 1000.0      Sales: 2000.0
+Name: Gem       Monthly Salary: 3000.0
+Name: John      Commission: 0.03        Sales: 12000.0
+Name: Joan      Commission: 0.04        Sales: 10000.0
+Name: Jack      Commission: 0.02        Sales: 5000.0
+Name: Fred      Monthly Salary: 10000.0
+Name: Frank     Monthly Salary: 5000.0
+Name: Florence  Monthly Salary: 3000.0
+Name: Linda     Hours: 35.0     Rate: 7.0
+Name: Larry     Hours: 23.0     Rate: 5.0
+Name: Lewis     Hours: 3.0      Rate: 3.0
+
+SalesManager: Gee 4001000.0
+SalesManager: Gal 3002000.0
+SalesManager: Gem 2003000.0
+Payroll: 9025229.0
+</pre>
+</td></tr>
+</tbody></table>
+</p><p>
+</p></center>
+
+
+</body></html>
