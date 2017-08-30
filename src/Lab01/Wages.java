@@ -240,12 +240,20 @@ class EmployeeList
 
     void display()
     {
-        System.out.println("display() not implemented");
+        for (Employee emp: _employeList)
+        {
+            emp.display();
+        }
     }
 
-    String payroll()
+    double payroll()
     {
-        return "payroll() not implemented";
+        double pay = 0;
+        for (Employee emp: _employeList)
+        {
+            pay+=emp.computePay();
+        }
+        return pay;
     }
 }
 
