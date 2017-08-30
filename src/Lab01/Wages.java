@@ -288,6 +288,28 @@ public class Wages
         emp.setSalary("Gal", 2000);
         emp.setSalary("Gem", 3000);
         emp.display();
-        System.out.println("Payroll: "+emp.payroll());
+        System.out.println("Payroll: " + emp.payroll());
     }
 }
+
+//    Sample Output:
+//        Name: Gee       Commission: 1000.0      Sales: 4000.0
+//        Name: Gee       Monthly Salary: 1000.0
+//        Name: Gal       Commission: 1000.0      Sales: 3000.0
+//        Name: Gal       Monthly Salary: 2000.0
+//        Name: Gem       Commission: 1000.0      Sales: 2000.0
+//        Name: Gem       Monthly Salary: 3000.0
+//        Name: John      Commission: 0.03        Sales: 12000.0
+//        Name: Joan      Commission: 0.04        Sales: 10000.0
+//        Name: Jack      Commission: 0.02        Sales: 5000.0
+//        Name: Fred      Monthly Salary: 10000.0
+//        Name: Frank     Monthly Salary: 5000.0
+//        Name: Florence  Monthly Salary: 3000.0
+//        Name: Linda     Hours: 35.0     Rate: 7.0
+//        Name: Larry     Hours: 23.0     Rate: 5.0
+//        Name: Lewis     Hours: 3.0      Rate: 3.0
+//
+//        SalesManager: Gee 4001000.0
+//        SalesManager: Gal 3002000.0
+//        SalesManager: Gem 2003000.0
+//        Payroll: 9025229.0
