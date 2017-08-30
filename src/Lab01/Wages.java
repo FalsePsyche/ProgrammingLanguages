@@ -1,7 +1,8 @@
 package Lab01;
 
-import java.io.*;
-import java.util.*;
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.List;
 
 abstract class Employee
 {
@@ -188,37 +189,97 @@ class SalesManager extends SalesPerson implements ManagerInterface
     }
 }
 
+class EmployeeList
+{
+    List<Employee> _employeList;
+    EmployeeList()
+    {
+        _employeList = new ArrayList<Employee>();
+    }
+
+    Employee find(String name)
+    {
+        for (Employee employee: _employeList)
+        {
+            if(name.equals(employee.name)) return employee;
+        }
+        return null;
+    }
+
+    void setHours(String name, double hours)
+    {
+        Employee emp = find(name);
+        if(emp != null)
+        {
+            emp.setHours(hours);
+        }
+    }
+
+    void setSalary(String name, double salary)
+    {
+        Employee emp = find(name);
+        if(emp != null)
+        {
+            emp.setSalary(salary);
+        }
+    }
+
+    void setSales(String name, double sales)
+    {
+        Employee emp = find(name);
+        if(emp != null)
+        {
+            emp.setSales(sales);
+        }
+    }
+
+    void enqueue(Employee employee)
+    {
+        _employeList.add(employee);
+    }
+
+    void display()
+    {
+        System.out.println("display() not implemented");
+    }
+
+    String payroll()
+    {
+        return "payroll() not implemented";
+    }
+}
+
 public class Wages
 {
     public static void main(String argv[])
     {
-//        EmployeeList emp = new EmployeeList();
-//        emp.enqueue(new SalesManager("Gee", 1000));
-//        emp.enqueue(new SalesManager("Gal", 1000));
-//        emp.enqueue(new SalesManager("Gem", 1000));
-//        emp.enqueue(new SalesPerson("John", 0.03));
-//        emp.enqueue(new SalesPerson("Joan", 0.04));
-//        emp.enqueue(new SalesPerson("Jack", 0.02));
-//        emp.enqueue(new Manager("Fred", 10000));
-//        emp.enqueue(new Manager("Frank", 5000));
-//        emp.enqueue(new Manager("Florence", 3000));
-//        emp.enqueue(new Programmer("Linda", 7));
-//        emp.enqueue(new Programmer("Larry", 5));
-//        emp.enqueue(new Programmer("Lewis", 3));
-//
-//        emp.setHours("Linda", 35);
-//        emp.setHours("Larry", 23);
-//        emp.setHours("Lewis", 3);
-//        emp.setSales("John", 12000);
-//        emp.setSales("Joan", 10000);
-//        emp.setSales("Jack", 5000);
-//        emp.setSales("Gee", 4000);
-//        emp.setSales("Gal", 3000);
-//        emp.setSales("Gem", 2000);
-//        emp.setSalary("Gee", 1000);
-//        emp.setSalary("Gal", 2000);
-//        emp.setSalary("Gem", 3000);
-//        emp.display();
-//        System.out.println("Payroll: "+emp.payroll());
+        EmployeeList emp = new EmployeeList();
+        emp.enqueue(new SalesManager("Gee", 1000));
+        emp.enqueue(new SalesManager("Gal", 1000));
+        emp.enqueue(new SalesManager("Gem", 1000));
+        emp.enqueue(new SalesPerson("John", 0.03));
+        emp.enqueue(new SalesPerson("Joan", 0.04));
+        emp.enqueue(new SalesPerson("Jack", 0.02));
+        emp.enqueue(new Manager("Fred", 10000));
+        emp.enqueue(new Manager("Frank", 5000));
+        emp.enqueue(new Manager("Florence", 3000));
+        emp.enqueue(new Programmer("Linda", 7));
+        emp.enqueue(new Programmer("Larry", 5));
+        emp.enqueue(new Programmer("Lewis", 3));
+
+        emp.setHours("Linda", 35);
+        emp.setHours("Larry", 23);
+        emp.setHours("Lewis", 3);
+        emp.setSales("John", 12000);
+        emp.setSales("Joan", 10000);
+        emp.setSales("Jack", 5000);
+        emp.setSales("Gee", 4000);
+        emp.setSales("Gal", 3000);
+        emp.setSales("Gem", 2000);
+        emp.setSalary("Gee", 1000);
+        emp.setSalary("Gal", 2000);
+        emp.setSalary("Gem", 3000);
+        emp.display();
+        System.out.println("Payroll: "+emp.payroll());
     }
 }
