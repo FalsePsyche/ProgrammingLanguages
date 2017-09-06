@@ -251,7 +251,7 @@ class EmployeeList
         double pay = 0;
         for (Employee emp: _employeList)
         {
-            pay+=emp.computePay();
+            pay += emp.computePay();
         }
         return pay;
     }
