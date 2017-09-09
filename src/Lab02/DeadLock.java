@@ -5,23 +5,21 @@ import java.applet.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import java.util.Random;
 
 
 // Attempt at a simple handshake.  Girl pings Boy, gets confirmation.
 // Then Boy pings girl, get confirmation.
 class Monitor {
     String name;
+    public boolean isSleeping = false;
+    public boolean isConfirmed = false;
+    boolean isPinging = false;
+    public boolean getIsPinging() { return this.isPinging; }
 
     public Monitor (String name) { this.name = name; }
 
     public String getName() {  return this.name; }
-
-    public static void print(String words)
-    {
-        System.out.println(System.nanoTime() + " | " + words);
-    }
-
 
     // Girl thread invokes ping, asks Boy to confirm.  But Boy invokes ping,
     // and asks Girl to confirm.  Neither Boy nor Girl can give time to their
@@ -29,39 +27,58 @@ class Monitor {
     // cannot be completed.
     public synchronized void ping (Monitor p)
     {
-        print(this.name + " (ping): pinging " + p.getName());
-//        System.out.println(this.name + " (ping): pinging " + p.getName());
+        System.out.println(this.name + " (ping): pinging " + p.getName());
+        this.isPinging = true;
 
-        p.release(this);
+        p.release(this); // let the other thread know we are going to wait and let it run
 
-        try {
-
-            print(this.name + " waiting... ");
-//            System.out.println(this.name + " waiting... ");
-            this.wait(500);
+        try
+        {
+            System.out.println(this.name + " waiting... ");
+//            this.isSleeping = true;
+            // wait thread until we are notified by another thread or we time out, using a random int as the timeout value
+//            while (this.isSleeping) {
+//                this.wait(new Random().nextInt(1000)); // sleep this thread and wait for other thread to release us so we can continue
+                this.wait(); // sleep this thread and wait for other thread to release us so we can continue
+//                this.isSleeping = false;
+//            }
         }
-        catch (InterruptedException e) {print(this.name + " InterruptException");}
+        catch (Exception e) { System.out.println(this.name + " FAILED to wait"); }
 
+        System.out.println(this.name + " done waiting");
+//        p.release(this); // let the other thread know we are going to wait and let it run
+
+        // tell other thread we have gotten their ping, which will allow them to confirm their ping to us was successful
         p.confirm(this);
-        print(this.name + " (ping): got confirmation");
+
+        System.out.println(this.name + " (ping): got CONFIRMATION");
+
+        p.release(this); // let the other thread know we are done and it can start back up
     }
 
     public synchronized void confirm (Monitor p)
     {
-        print(this.name + " (confirm): confirm to " + p.getName());
-//        System.out.println(this.name + " (confirm): confirm to " + p.getName());
+        System.out.println("  " + this.name + " (confirm): confirm to " + p.getName());
+        p.isPinging = false;
     }
 
     public synchronized void release (Monitor p)
     {
-        print(this.name + " has entered release");
 //        System.out.println(this.name + " has entered release");
 //        try
 //        {
-        print(this.name + " notifying " + p.getName());
-//            System.out.println(this.name + " notifying " + p.getName());
-            p.notify();
-
+        System.out.println("  " + p.getName() + " releasing " + this.getName());
+        try {
+            if(this.isPinging)
+            {
+                this.notify();
+                System.out.println("  " + this.getName() + " released");
+            }else {System.out.println("  " + this.getName() + " doesn't need to be released");}
+        } catch (Exception e) {
+            System.out.println("  " + this.name + " FAILED to release " + " | " + e.toString());
+        }
+//        System.out.println(this.name + " released");
+//        System.out.println("  " + this.getName() + " released");
 //            this.wait(500);
 //            System.out.println(this.name + " waiting... ");
 //        }
@@ -76,7 +93,8 @@ class Monitor {
 class Runner extends Thread {
     Monitor m1, m2;
 
-    public Runner (Monitor m1, Monitor m2) {
+    public Runner (Monitor m1, Monitor m2)
+    {
         this.m1 = m1;
         this.m2 = m2;
     }
@@ -84,13 +102,20 @@ class Runner extends Thread {
     public void run () {  m1.ping(m2);  }
 }
 
-public class DeadLock {
-    public static void main (String args[]) {
+public class DeadLock
+{
+    public static void main (String args[])
+    {
         int i=1;
-        System.out.println("Starting..."+(i++));
-        Monitor a = new Monitor("Girl");
-        Monitor b = new Monitor("Boy");
-        (new Runner(a, b)).start();
-        (new Runner(b, a)).start();
+//        while(i < 15)
+        {
+//            try { Thread.sleep(2000); }
+//            catch (InterruptedException e) { e.printStackTrace(); }
+            System.out.println("\nStarting..."+(i++));
+            Monitor a = new Monitor("Girl");
+            Monitor b = new Monitor("Boy ");
+            (new Runner(a, b)).start();
+            (new Runner(b, a)).start();
+        }
     }
 }
