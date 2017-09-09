@@ -12,10 +12,8 @@ import java.util.Random;
 // Then Boy pings girl, get confirmation.
 class Monitor {
     String name;
-    public boolean isSleeping = false;
-    public boolean isConfirmed = false;
     boolean isPinging = false;
-    public boolean getIsPinging() { return this.isPinging; }
+//    public boolean getIsPinging() { return this.isPinging; }
 
     public Monitor (String name) { this.name = name; }
 
@@ -35,18 +33,11 @@ class Monitor {
         try
         {
             System.out.println(this.name + " waiting... ");
-//            this.isSleeping = true;
-            // wait thread until we are notified by another thread or we time out, using a random int as the timeout value
-//            while (this.isSleeping) {
-//                this.wait(new Random().nextInt(1000)); // sleep this thread and wait for other thread to release us so we can continue
                 this.wait(); // sleep this thread and wait for other thread to release us so we can continue
-//                this.isSleeping = false;
-//            }
         }
         catch (Exception e) { System.out.println(this.name + " FAILED to wait"); }
 
         System.out.println(this.name + " done waiting");
-//        p.release(this); // let the other thread know we are going to wait and let it run
 
         // tell other thread we have gotten their ping, which will allow them to confirm their ping to us was successful
         p.confirm(this);
@@ -64,9 +55,6 @@ class Monitor {
 
     public synchronized void release (Monitor p)
     {
-//        System.out.println(this.name + " has entered release");
-//        try
-//        {
         System.out.println("  " + p.getName() + " releasing " + this.getName());
         try {
             if(this.isPinging)
@@ -77,16 +65,6 @@ class Monitor {
         } catch (Exception e) {
             System.out.println("  " + this.name + " FAILED to release " + " | " + e.toString());
         }
-//        System.out.println(this.name + " released");
-//        System.out.println("  " + this.getName() + " released");
-//            this.wait(500);
-//            System.out.println(this.name + " waiting... ");
-//        }
-//        catch (InterruptedException e)
-//        {
-            /*e.printStackTrace(); */
-//            System.out.println(this.name + " InterruptException" + e.getMessage());
-//        }
     }
 }
 
