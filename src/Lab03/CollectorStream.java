@@ -6,4 +6,8 @@ public class CollectorStream extends Stream
     {
         // do the things
     }
+    public void add(Producer producer)
+    {
+
+    }
 }
