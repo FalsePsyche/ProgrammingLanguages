@@ -28,10 +28,15 @@ public class CollectorStream extends Stream
 
     public void run ()
     {
-        for (int i = 0; i < producers.size(); i++)
+        double t = 0;
+        for (int i = 0; i < this.producers.size(); i++)
         {
             Object producer = producers.get(i);
-
+            Subscriber sub = (Subscriber) ((Producer)producer).next();
+            t += sub.stock_value;
         }
+        IntObject total = new IntObject((int)t);
+        this.notifier.putValue(total);
+        this.putIt(this.notifier);
     }
 }
