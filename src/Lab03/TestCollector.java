@@ -43,6 +43,8 @@ class TCFrame extends JFrame implements ActionListener {
         p.add(go = new JButton("Start"));
         add("South", p);
         go.addActionListener(this);
+        setSize(600, 400);
+        setVisible(true);
     }
 
     public void actionPerformed (ActionEvent evt) {
@@ -63,5 +65,9 @@ public class TestCollector extends Applet implements ActionListener {
         TCFrame f = new TCFrame();
         f.setSize(600,400);
         f.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        TCFrame f = new TCFrame();
     }
 }
