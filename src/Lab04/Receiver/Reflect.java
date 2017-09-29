@@ -5,8 +5,7 @@
 
 package Lab04.Receiver;
 
-import Lab04.Receiver.Receiver;
-import Lab04.Transmitter.Transmitter;
+import Lab04.Receiver.Transmitter.Transmitter;
 
 import java.applet.*;
 import javax.swing.*;
