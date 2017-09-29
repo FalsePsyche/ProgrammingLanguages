@@ -115,7 +115,13 @@ public class Receiver extends JFrame implements ActionListener {
         try {
             if (evt.getSource() == b) {
                 status.setText("Invoking init");
-                gc.meth.invoke(gc.obj);
+//                gc.meth.invoke(gc.obj);
+                Class <?> frame = gc.cls.getSuperclass();
+                Method sz = frame.getMethod("setSize", new Class<?>[]{Integer.TYPE,Integer.TYPE});
+                sz.invoke(frame.newInstance(), new Object[]{500,500});
+                Method show = frame.getMethod("setVisible", new Class<?>[]{Boolean.TYPE});
+                show.invoke(frame.newInstance(), true);
+//                sz.invoke(frame);
             }
         } catch (Exception e) {
             status.setText(e.toString());
