@@ -1,3 +1,8 @@
+// Tanner Bornemann
+// Lab04
+// CS4003
+// 27 Sep 2017
+
 package Lab04.Receiver;
 
 import Lab04.Receiver.Receiver;
