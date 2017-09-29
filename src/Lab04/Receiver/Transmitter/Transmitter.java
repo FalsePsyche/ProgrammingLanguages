@@ -1,4 +1,4 @@
-package Lab04.Transmitter;
+package Lab04.Receiver.Transmitter;
 
 //package Transmitter;
 
@@ -23,7 +23,8 @@ class Sender {
         InputStream is;
         try {
             if (trn.where.getSelectedIndex() == 1) {
-                is = new FileInputStream("Transmitter/" + classname + ".class");
+                is = new FileInputStream("C:\\github\\ProgrammingLanguages\\src\\Lab04\\Receiver\\Transmitter\\" + classname + ".class");
+//                is = new FileInputStream(classname + ".class");
             } else {
                 String host = "http://gauss.ececs.uc.edu/";
                 String location = "Courses/c4003/java/Reflection/E3/Transmitter/";
@@ -35,6 +36,7 @@ class Sender {
             while ((ch = is.read()) != -1) buffer.write(ch);
             classbytes = buffer.toByteArray();
         } catch (Exception e) {
+
             trn.status.setText("No such class: " + classname + ".class");
             return;
         }

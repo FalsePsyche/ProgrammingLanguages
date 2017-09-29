@@ -1,4 +1,4 @@
-package Lab04.Transmitter;
+package Lab04.Receiver.Transmitter;
 //package Transmitter;
 
 import java.net.*;
@@ -6,8 +6,6 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.applet.*;
-import java.security.*;
 
 public class Weather extends JFrame implements ActionListener {
     JTextArea text;

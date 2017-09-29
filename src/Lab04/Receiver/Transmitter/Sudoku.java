@@ -1,4 +1,4 @@
-package Lab04.Transmitter;
+package Lab04.Receiver.Transmitter;
 //package Transmitter;
 
 import java.io.*;
