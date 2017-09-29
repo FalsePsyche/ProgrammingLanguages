@@ -15,7 +15,7 @@ public class Weather extends JFrame implements ActionListener {
     JButton start;
     String url = "http://tgftp.nws.noaa.gov/data/observations/metar/decoded";
 
-    public void init() {
+    public Weather() {
         setLayout(new BorderLayout());
         setBackground(new Color(255, 255, 224));
 
@@ -68,8 +68,8 @@ public class Weather extends JFrame implements ActionListener {
         locale.addItem("NVVV (Vanuatu)");
         locale.setFont(new Font("TimesRoman", Font.PLAIN, 18));
 
-        setSize(700, 300);
-        setVisible(true);
+//        setSize(700, 300);
+//        setVisible(true);
     }
 
     public void actionPerformed(ActionEvent evt) {

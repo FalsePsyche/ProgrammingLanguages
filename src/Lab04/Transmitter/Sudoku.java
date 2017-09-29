@@ -21,7 +21,7 @@ public class Sudoku extends JFrame implements ActionListener, KeyListener, Runna
     // positions increasing in row major order.  fixed[i] = false means that
     // number correponding to position [i/9][i%9] has not been fixed in the
     // input, fixed[i] = true otherwise.
-    public void init() {
+    public Sudoku() {
         setLayout(new BorderLayout());
 
         JPanel p = new JPanel();
@@ -76,8 +76,8 @@ public class Sudoku extends JFrame implements ActionListener, KeyListener, Runna
         setUp();
         new_file = true;
 
-        setSize(600, 620);
-        setVisible(true);
+//        setSize(600, 620);
+//        setVisible(true);
     }
 
     public void setUp() {
