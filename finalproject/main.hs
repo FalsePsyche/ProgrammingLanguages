@@ -47,6 +47,8 @@ renderAlgorithm x y = PixelRGB8 (fromIntegral (x - 128)) (fromIntegral (y + 128)
 
 -- do something with mod
 
-
 renderAlgorithmModulo :: Int -> Int -> PixelRGB8
-renderAlgorithmModulo x y = PixelRGB8 (fromIntegral (mod (x - 128) 2) * 128) (fromIntegral (mod (y + 128) 2) * 128 ) (fromIntegral (x+y + 128))
+renderAlgorithmModulo x y = PixelRGB8 
+                            (fromIntegral (mod (x - 128) 2) * 128) -- red
+                            (fromIntegral (mod (y + 128) 2) * 128) -- green
+                            (fromIntegral (mod x (y + 1))) -- blue
