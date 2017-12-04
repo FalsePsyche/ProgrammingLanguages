@@ -52,3 +52,13 @@ renderAlgorithmModulo x y = PixelRGB8
                             (fromIntegral (mod (x - 128) 2) * 128) -- red
                             (fromIntegral (mod (y + 128) 2) * 128) -- green
                             (fromIntegral (mod x (y + 1))) -- blue
+
+meltyIceCream :: String -> IO ()
+meltyIceCream path = writePng path $ generateImage renderAlgorithmMeltyIceCream 255 255
+
+-- this render algorithm creates a mixed color that looks like it is melting or something weird
+renderAlgorithmMeltyIceCream :: Int -> Int -> PixelRGB8
+renderAlgorithmMeltyIceCream x y = PixelRGB8 
+                        (fromIntegral (y + x^2 + 170)) -- red
+                        (fromIntegral (y + x^2 + 85)) -- green
+                        (fromIntegral (y + x^2)) -- blue
