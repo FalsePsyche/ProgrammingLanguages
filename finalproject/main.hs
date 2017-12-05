@@ -43,7 +43,10 @@ experiment2 :: String -> IO ()
 experiment2 path = writePng path $ generateImage renderAlgorithmModulo 255 255
 
 renderAlgorithm :: Int -> Int -> PixelRGB8
-renderAlgorithm x y = PixelRGB8 (fromIntegral (x - 128)) (fromIntegral (y + 128)) (fromIntegral (x+y + 128))
+renderAlgorithm x y = PixelRGB8 
+                        (fromIntegral (x - 128)) 
+                        (fromIntegral (y + 128)) 
+                        (fromIntegral (x+y + 128))
 
 -- do something with mod
 
