@@ -16,6 +16,26 @@ An image generator using one of 16,777,216 for each pixel ([24bit color depth](h
 - [![Haskell](https://www.haskell.org/static/img/haskell-logo.svg?etag=ukf3Fg7-)](https://www.haskell.org/)
 - [![](https://camo.githubusercontent.com/8138e62c7342cc9c34aba722750bddd2f38aa626/68747470733a2f2f7261772e6769746875622e636f6d2f5477696e736964652f4a756963792e506978656c732f6d61737465722f646f63696d616765732f6a756963792e706e67) JuicyPixels package](https://hackage.haskell.org/package/JuicyPixels)
 
+## How to use
+
+Change directory in cmd line to the directory with the `main.hs` file
+````cmd
+cd finalproject
+````
+Run the GHC
+````cmd
+ghc --make main.hs
+````
+Run the main.hs
+````cmd
+main.hs
+````
+Call a function
+````
+meltyIceCream "meltyIceCreamOutput.png"
+````
+A new image file will be created based on the algorithm within the meltyIceCream function.
+
 ## Something something
 
 Creating an image with individually uniquely colored pixels is very easy using Haskell and the hackage JuicyPixels. Within JuicyPixels there is a function called `generateImage` that takes a function and 2 integer values as arguments. It uses the two integer values to determine the width and height of the image and also uses them to determine the inputs to the function argument. By iterating from 0 to width - 1 for the x value and 0 to height - 1 for the y value, we can simply make the function argument return the input values for x and y. But because this would Since the iteration never repeats the same value, we instantly have an algorithm that creates a uniquely colored pixel that matches no other pixel within the image. But this is no fun, so I am going to explore much more complicated algorithms in hopes of creating some impressive images.
