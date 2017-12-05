@@ -7,6 +7,9 @@ import Codec.Picture
 main = do 
     putStrLn "y wudi ly"
 
+defaultWidth = (fromIntegral 255)
+defaultHeight = (fromIntegral 128)
+
 printer :: IO ()
 printer = print (fromIntegral 128)
 
@@ -17,8 +20,8 @@ printer = print (fromIntegral 128)
 -- holy shit pixelRenderer is the algorithm for the generateImage?? how does this fucking work WTF there isn't even anything telling to loop or iterate wtffffffff
 -- holy shit generateImage takes a function as its first parm, and calls the func with iterated values from 0 to 249 (width - 1) to produce the colors
 imageCreator :: String -> IO ()
-imageCreator path = writePng path $ generateImage pixelRenderer 255 255
-   where pixelRenderer x y = PixelRGB8 (fromIntegral x) (fromIntegral y) 128
+imageCreator path = writePng path $ generateImage pixelRenderer defaultWidth defaultWidth
+   where pixelRenderer x y = PixelRGB8 (fromIntegral x) (fromIntegral y) (fromIntegral defaultHeight)
 
 -- 'newImage "test1.png" 100 100 128
 -- args: filename width height blue
