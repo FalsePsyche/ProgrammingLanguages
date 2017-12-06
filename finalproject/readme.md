@@ -26,12 +26,12 @@ Run the GHC
 ````cmd
 ghc --make meltyIceCream.hs
 ````
-Run the meltyIceCream.hs
+Run the meltyIceCream module
 ````cmd
 meltyIceCream.exe
 ````
 
-A new image file will be created based on the algorithm within the meltyIceCream function.
+A new image file named `meltyIceCream.png` will be created based on the algorithm within the meltyIceCream function.
 
 ## Uniquely Colored Pixels
 
