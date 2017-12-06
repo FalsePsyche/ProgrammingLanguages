@@ -59,17 +59,6 @@ renderAlgorithmModulo x y = PixelRGB8
                             (fromIntegral (mod (y + defaultHeight) 2) * 128) -- green
                             (fromIntegral (mod x (y + 1))) -- blue
 
--- Creates an image that looks like metly ice cream?                            
-meltyIceCream :: String -> IO ()
-meltyIceCream path = writePng path $ generateImage renderAlgorithmMeltyIceCream defaultWidth defaultHeight
-
--- this render algorithm creates a mixed color that looks like it is melting or something weird
-renderAlgorithmMeltyIceCream :: Int -> Int -> PixelRGB8
-renderAlgorithmMeltyIceCream x y = PixelRGB8 
-                        (fromIntegral (y + x^2 + 170)) -- red
-                        (fromIntegral (y + x^2 + 85)) -- green
-                        (fromIntegral (y + x^2)) -- blue
-
 -- Creates an image that fades from black to white (left to right)
 blackToWhite :: String -> IO ()
 blackToWhite path = writePng path $ generateImage renderBlackToWhite defaultWidth 128
