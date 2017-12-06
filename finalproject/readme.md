@@ -36,10 +36,10 @@ meltyIceCream "meltyIceCreamOutput.png"
 ````
 A new image file will be created based on the algorithm within the meltyIceCream function.
 
-## Something something
+## Uniquely Colored Pixels
 
 Creating an image with individually uniquely colored pixels is very easy using Haskell and the hackage JuicyPixels. Within JuicyPixels there is a function called `generateImage` that takes a function and 2 integer values as arguments. It uses the two integer values to determine the width and height of the image and also uses them to determine the inputs to the function argument. By iterating from 0 to width - 1 for the x value and 0 to height - 1 for the y value, we can simply make the function argument return the input values for x and y. But because this would Since the iteration never repeats the same value, we instantly have an algorithm that creates a uniquely colored pixel that matches no other pixel within the image. But this is no fun, so I am going to explore much more complicated algorithms in hopes of creating some impressive images.
 
-# "Un-Aware Algorithms"
+## "Un-Aware Algorithms"
 
 My first few attempts at creating an interesting image were with simple algorithms that were not 'aware' of the other pixels and their colors. After spending some time reading JuicyPixels' documentation I found a way to read an image yadayada

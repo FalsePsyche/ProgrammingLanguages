@@ -59,6 +59,7 @@ renderAlgorithmModulo x y = PixelRGB8
                             (fromIntegral (mod (y + defaultHeight) 2) * 128) -- green
                             (fromIntegral (mod x (y + 1))) -- blue
 
+-- Creates an image that looks like metly ice cream?                            
 meltyIceCream :: String -> IO ()
 meltyIceCream path = writePng path $ generateImage renderAlgorithmMeltyIceCream defaultWidth defaultHeight
 
@@ -68,6 +69,20 @@ renderAlgorithmMeltyIceCream x y = PixelRGB8
                         (fromIntegral (y + x^2 + 170)) -- red
                         (fromIntegral (y + x^2 + 85)) -- green
                         (fromIntegral (y + x^2)) -- blue
+
+-- Creates an image that fades from black to white (left to right)
+blackToWhite :: String -> IO ()
+blackToWhite path = writePng path $ generateImage renderBlackToWhite defaultWidth 128
+
+allC :: [Int]
+allC = [a | a <- [0..255]]
+
+renderBlackToWhite :: Int -> Int -> PixelRGB8
+renderBlackToWhite x y = PixelRGB8
+                        (fromIntegral (allC!!(x)))
+                        (fromIntegral (allC!!(x)))
+                        (fromIntegral (allC!!(x)))
+
 
 -- one :: String -> IO ()
 -- one path = writePng path $ createMutableImage defaultWidth defaultWidth $ (renderAlgorithmone 50 50)
