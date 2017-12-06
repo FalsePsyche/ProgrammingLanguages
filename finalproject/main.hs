@@ -1,6 +1,10 @@
 -- haskell 4 lif
 
+-- module main where
+
 import Codec.Picture
+import System.Random
+-- import meltyIceCream
 
 -- main
 -- > y wudi ly
@@ -105,9 +109,22 @@ getArray x
 getAdjustedValue :: Int -> Int
 getAdjustedValue i = (fromIntegral (3 + (mod (7*i) 2)))
 
--- will return a list of RGB tuples, the list will contain every RGB combination possible
+-- NOTE: instead of presorting the list, we should use a get function that will use a random index position to get from, then remove that item from the list
+allColorImage :: String -> IO ()
+allColorImage path = writePng path $ generateImage renderAllColor defaultWidth 128
+
+-- will return a list of RGB tuples, the list will contain every RGB combination possible. Increments by 8, max is 256 (exclusive)
 allColors :: [(Int, Int, Int)]
-allColors = [(x, y, z) | x <- [0..defaultWidth], y <- [0..defaultWidth], z <- [0..defaultWidth]]
+-- allColors = [(x, y, z) | x <- [255, 223..0], y <- [255, 223..0], z <- [255, 223..0]]
+-- allColors = [(r, g, b) | r <- [0, 64..256], g <- [0, 64..256], b <- [0, 64..256]]
+allColors = [(r, g, b) | r <- [0, 8..256], g <- [0, 8..256], b <- [0, 8..256]]
+
+-- generates a striped rainbow image
+renderAllColor :: Int -> Int -> PixelRGB8
+renderAllColor x y = PixelRGB8
+                    (fromIntegral $ (getR (allColors!!(x*140))))
+                    (fromIntegral $ (getG (allColors!!(x*70))))
+                    (fromIntegral $ (getB (allColors!!(x))))
 
 getR :: (Int, Int, Int) -> Int
 getR (r, _, _) = r
