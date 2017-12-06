@@ -18,22 +18,19 @@ An image generator using one of 16,777,216 for each pixel ([24bit color depth](h
 
 ## How to use
 
-Change directory in cmd line to the directory with the `main.hs` file
+Change directory in cmd line to the directory with the `meltyIceCream.hs` file
 ````cmd
 cd finalproject
 ````
 Run the GHC
 ````cmd
-ghc --make main.hs
+ghc --make meltyIceCream.hs
 ````
-Run the main.hs
+Run the meltyIceCream.hs
 ````cmd
-main.hs
+meltyIceCream.exe
 ````
-Call a function
-````
-meltyIceCream "meltyIceCreamOutput.png"
-````
+
 A new image file will be created based on the algorithm within the meltyIceCream function.
 
 ## Uniquely Colored Pixels
