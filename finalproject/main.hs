@@ -4,6 +4,8 @@
 
 import Codec.Picture
 import System.Random
+import Data.Function
+import Data.List
 -- import meltyIceCream
 
 -- main
@@ -119,6 +121,12 @@ allColors :: [(Int, Int, Int)]
 -- allColors = [(r, g, b) | r <- [0, 64..256], g <- [0, 64..256], b <- [0, 64..256]]
 allColors = [(r, g, b) | r <- [0, 8..255], g <- [0, 8..255], b <- [0, 8..255]]
 
+sortAllColors :: [(Int, Int, Int)] -> [(Int, Int, Int)]
+sortAllColors [] = [(-1,0,-1)]
+-- sortAllColors ((r, g, b):_:_) =  [(r,2,2)]
+sortAllColors ((r, g, b):x:y) = sortBy (compare `on` (getColorSum )) [(r, g, b)]
+
+
 -- generates a striped rainbow image
 renderAllColor :: Int -> Int -> PixelRGB8
 renderAllColor x y = PixelRGB8
@@ -134,6 +142,10 @@ getG (_, g, _) = g
 
 getB :: (Int, Int, Int) -> Int
 getB (_, _, b) = b
+
+getColorSum :: (Int, Int, Int) -> Int
+getColorSum (r, g, b) = (r + g + b)
+
 
 renderAlgorithmPlain :: (Int, Int, Int) -> PixelRGB8
 renderAlgorithmPlain (r, g, b) = PixelRGB8
