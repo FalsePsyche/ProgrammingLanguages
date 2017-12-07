@@ -41,3 +41,9 @@ Creating an image with individually uniquely colored pixels is very easy using H
 
 My first few attempts at creating an interesting image were simple algorithms that were not 'aware' of the other pixels and their colors. [At least not like the winning project of the referenced inspiration.](https://codegolf.stackexchange.com/questions/22144/images-with-all-colors/22326#22326)
 Since C# is my primary language it was very easy for me to understand how [fejesjoco](https://codegolf.stackexchange.com/users/14701/fejesjoco)'s solution worked. So I figured trying to convert this solution into Haskell could be an interesting challenge that I could use to further my understanding of Haskell and the functional programming paradigm. Even though C# implements many functional programming aspects from fp languages, including Haskell, it does not make the process of creating the same outcome in Haskell easy. Though this solution is well written in C#, it uses many imperitive paradigms that cannot be used in a functionally pure language such as Haskell.
+
+in my attempt at converting the C# application to Haskell I have learned a few things in Haskell:
+
+1. how to generate lists, with increments other than +1 and generating a list of tuples that creates all possible combinations
+1. how to install and use hackages
+1. how to interact with a Haskell file in GHCi
