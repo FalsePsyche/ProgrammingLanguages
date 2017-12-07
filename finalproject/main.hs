@@ -196,22 +196,21 @@ shuffle1 elements rseq = shuffle1' (build_tree elements) rseq
     where
     shuffle1' (Leaf e) [] = [e]
     shuffle1' tree (ri:r_others) = extract_tree ri tree 
-				    (\tree -> shuffle1' tree r_others)
-	     -- extract_tree n tree
-	     -- extracts the n-th element from the tree and returns
-	     -- that element, paired with a tree with the element
-	     -- deleted (only instead of pairing, we use CPS)
-	     -- The function maintains the invariant of the completeness
-	     -- of the tree: all internal nodes are always full.
-	     -- The collection of patterns below is deliberately not complete.
-	     -- All the missing cases may not occur (and if they do,
-	     -- that's an error.
+                    (\tree -> shuffle1' tree r_others)
+         -- extract_tree n tree
+         -- extracts the n-th element from the tree and returns
+         -- that element, paired with a tree with the element
+         -- deleted (only instead of pairing, we use CPS)
+         -- The function maintains the invariant of the completeness
+         -- of the tree: all internal nodes are always full.
+         -- The collection of patterns below is deliberately not complete.
+         -- All the missing cases may not occur (and if they do,
+         -- that's an error.
     extract_tree 0 (Node _ (Leaf e) r) k = e:k r
     extract_tree 1 (Node 2 l@Leaf{} (Leaf r)) k = r:k l
     extract_tree n (Node c l@Leaf{} r) k =
-	extract_tree (n-1) r (\new_r -> k $ Node (c-1) l new_r)
+        extract_tree (n-1) r (\new_r -> k $ Node (c-1) l new_r)
     extract_tree n (Node n1 l (Leaf e)) k | n+1 == n1 = e:k l
-				       
     extract_tree n (Node c l@(Node cl _ _) r) k
-	| n < cl = extract_tree n l (\new_l -> k $ Node (c-1) new_l r)
-	| otherwise = extract_tree (n-cl) r (\new_r -> k $ Node (c-1) l new_r)
+        | n < cl = extract_tree n l (\new_l -> k $ Node (c-1) new_l r)
+        | otherwise = extract_tree (n-cl) r (\new_r -> k $ Node (c-1) l new_r)
