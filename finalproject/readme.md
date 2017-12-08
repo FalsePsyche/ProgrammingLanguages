@@ -1,11 +1,6 @@
 # Final Project
 
-This project is an image generator using one of 32,768 for each pixel ([15bit color depth](https://en.wikipedia.org/wiki/High_color)) w/ different algorithms using Haskell. It is for my final project in my Programming Languages class CS4003 during the Fall semester of 2017.
-
-## Rules
-
-1. Only one color per pixel of the image; an RGB value can not be used more than once.
-1. Each of the individual 32,768 possible color values must be used.
+This project is an attempt at image generator using 32,768 pixels of unique color values ([15bit color depth](https://en.wikipedia.org/wiki/High_color)) w/ different algorithms using Haskell. It is for my final project in my Programming Languages class CS4003 during the Fall semester of 2017.
 
 ## Inspiration
 
