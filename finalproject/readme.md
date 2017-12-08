@@ -33,6 +33,8 @@ meltyIceCream.exe
 ````
 
 A new image file named `meltyIceCream.png` will be created based on the algorithm within the meltyIceCream function.
+The image should look similar to this:
+![](exampleimages/meltyIceCream.png)
 
 ## Uniquely Colored Pixels
 

@@ -3,7 +3,7 @@
 import Codec.Picture
 
 main = do 
-    meltyIceCream "meltyIceCream.png"
+    meltyIceCream "exampleimages/meltyIceCream.png"
 
 defaultWidth = (fromIntegral 255)
 defaultHeight = (fromIntegral 128)
