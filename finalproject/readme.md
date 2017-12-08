@@ -42,21 +42,27 @@ Creating an image with individually uniquely colored pixels is very easy using H
 My first few attempts at creating an interesting image were simple algorithms that were not 'aware' of the other pixels and their colors. [At least not like the winning project of the referenced inspiration.](https://codegolf.stackexchange.com/questions/22144/images-with-all-colors/22326#22326)
 Since C# is my primary language it was very easy for me to understand how [fejesjoco](https://codegolf.stackexchange.com/users/14701/fejesjoco)'s solution worked. So I figured trying to convert this solution into Haskell could be an interesting challenge that I could use to further my understanding of Haskell and the functional programming paradigm. Even though C# implements many functional programming aspects from fp languages, including Haskell, it does not make the process of creating the same outcome in Haskell easy. Though fejesjoco's solution is well written in C#, it uses many imperitive paradigms that cannot be used in a functionally pure language such as Haskell.
 
-# C# is not Haskell and Haskell is not C#
+## C# is not Haskell and Haskell is not C#
 
 Trying to take C# code and 'translate' it to Haskell has taught me a lot about Haskell and C#. It has taught me the benefit of using the functional paradigms available in C#. And it has taught me how _wrong_ it is to try and convert C# to Haskell. The more I try, the more I feel simply _wrong_ attempting this. The C# code uses many states and objects, Haskell has no place for state or objects. The more I grasp and understand the Haskell 'mindset'; the more I realize how silly of an idea it was to attempt this conversion. There are many parts of the C# code that do not translate to anything in Haskell and the logic must be 're-thought'. 
 
 For example; if I wanted to take a list and swap every item with its partner, so that this:
+
 `[(0,0,0),(0,0,128),(0,128,0),(0,128,128),(128,0,0),(128,0,128),(128,128,0),(128,128,128)]`
+
 becomes this:
+
 `[(0,0,128),(0,0,0),(0,128,128),(0,128,0),(128,0,128),(128,0,0),(128,128,128),(128,128,0)]`
+
 I can write this in 3 lines in Haskell, and its safe. It will never fail even when given an empty list:
 ```haskell
 recursiveSplitReverse :: [(Int, Int, Int)] -> [(Int, Int, Int)]
 recursiveSplitReverse [] = []
 recursiveSplitReverse (x:y:xs) = [y,x] ++ recursiveSplitReverse xs
 ```
+Using this algorithm on a list of tuples (`(Int, Int, Int)`) creates this image:
 
+![](exampleimages/split.png)
 
 in my attempt at converting the C# application to Haskell I have learned a few things in Haskell:
 
