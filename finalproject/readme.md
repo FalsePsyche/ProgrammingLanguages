@@ -19,7 +19,7 @@ This project is an image generator using one of 32,768 for each pixel ([15bit co
 
 ## How to use
 
-Change directory in cmd line to the directory with the `[meltyIceCream.hs](meltyIceCream.hs)` file
+Change directory in cmd line to the directory with the [meltyIceCream.hs](meltyIceCream.hs) file
 ````cmd
 cd finalproject
 ````
